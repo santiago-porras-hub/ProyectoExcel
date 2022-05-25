@@ -16,7 +16,7 @@ public class userService {
 
     public User registerUser(User user){
 
-        User newUser= new User(user.getId(), user.getNombre(),user.getEdad(),user.getPrioridad());
+        User newUser= new User(user.getId(), user.getNombre(),user.getPrioridad(),user.getEdad());
         userRepository.registerUser(newUser);
         return newUser;
     }

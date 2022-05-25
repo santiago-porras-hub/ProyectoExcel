@@ -7,18 +7,21 @@ import java.io.Serializable;
 public class User implements Serializable {
 
    @Id
-   @GeneratedValue(strategy = GenerationType.IDENTITY)
    @Column(unique = true,nullable = false)
    private long id;
    private String nombre;
    private String prioridad;
-   private String edad;
+   private int edad;
 
-    public User(long id, String nombre, String prioridad, String edad) {
+    public User(long id, String nombre, String prioridad, int edad) {
         this.id = id;
         this.nombre = nombre;
         this.prioridad = prioridad;
         this.edad = edad;
+    }
+
+    public User() {
+
     }
 
     public long getId() {
@@ -45,11 +48,11 @@ public class User implements Serializable {
         this.prioridad = prioridad;
     }
 
-    public String getEdad() {
+    public int getEdad() {
         return edad;
     }
 
-    public void setEdad(String edad) {
+    public void setEdad(int edad) {
         this.edad = edad;
     }
 }
