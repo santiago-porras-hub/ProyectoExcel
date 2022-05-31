@@ -13,6 +13,7 @@ public class User implements Serializable {
    private String prioridad;
    private int edad;
 
+
     public User(long id, String nombre, String prioridad, int edad) {
         this.id = id;
         this.nombre = nombre;

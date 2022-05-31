@@ -6,15 +6,17 @@ public class UserPojo {
     private String nombre ;
     private int edad;
     private String prioridad;
+    private String correo;
 
     public UserPojo() {
     }
 
-    public UserPojo(long id, String nombre, int edad, String prioridad) {
+    public UserPojo(long id, String nombre, int edad, String prioridad, String correo) {
         this.id = id;
         this.nombre = nombre;
         this.edad = edad;
         this.prioridad = prioridad;
+        this.correo = correo;
     }
 
     public long getId() {
@@ -47,5 +49,13 @@ public class UserPojo {
 
     public void setPrioridad(String prioridad) {
         this.prioridad = prioridad;
+    }
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
     }
 }
