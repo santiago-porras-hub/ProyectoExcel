@@ -12,18 +12,23 @@ public class User implements Serializable {
    private String nombre;
    private String prioridad;
    private int edad;
+   private String correo;
+   private String pass;
 
-
-    public User(long id, String nombre, String prioridad, int edad) {
+    public User(long id, String nombre, String prioridad, int edad, String pass, String correo) {
         this.id = id;
         this.nombre = nombre;
         this.prioridad = prioridad;
         this.edad = edad;
+        this.correo = correo;
+        this.pass = pass;
     }
+
 
     public User() {
 
     }
+
 
     public long getId() {
         return id;
@@ -55,5 +60,21 @@ public class User implements Serializable {
 
     public void setEdad(int edad) {
         this.edad = edad;
+    }
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+
+    public String getPassword() {
+        return pass;
+    }
+
+    public void setPassword(String password) {
+        this.pass = password;
     }
 }

@@ -10,13 +10,11 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 @Service
 public class emailService {
-
     //Importante hacer la inyección de dependencia de JavaMailSender:
     @Autowired
     private JavaMailSender mailSender;
 
     public void sendEmail(String to, String subject, String content, String from) {
-
 
         try {
             System.out.println(to);

@@ -7,6 +7,7 @@ public class UserPojo {
     private int edad;
     private String prioridad;
     private String correo;
+    private String pass;
 
     public UserPojo() {
     }
@@ -17,6 +18,11 @@ public class UserPojo {
         this.edad = edad;
         this.prioridad = prioridad;
         this.correo = correo;
+    }
+
+    public UserPojo(long id, String password) {
+        this.id = id;
+        this.pass = password;
     }
 
     public long getId() {
@@ -57,5 +63,13 @@ public class UserPojo {
 
     public void setCorreo(String correo) {
         this.correo = correo;
+    }
+
+    public String getPassword() {
+        return pass;
+    }
+
+    public void setPassword(String password) {
+        this.pass = password;
     }
 }

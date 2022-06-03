@@ -1,6 +1,7 @@
 package co.edu.unbosque.proyecto.controller;
 
 
+import co.edu.unbosque.proyecto.Pojo.MessagePojo;
 import co.edu.unbosque.proyecto.Pojo.UserPojo;
 import co.edu.unbosque.proyecto.models.User;
 import co.edu.unbosque.proyecto.service.emailService;
@@ -15,7 +16,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/user")
-@CrossOrigin(origins = "https://localhost:8080")
+@CrossOrigin(origins = "https://localhost:4200")
 public class userController {
 
     @Autowired
@@ -27,12 +28,14 @@ public class userController {
 
 
     @PostMapping("/createUser")
-    public ResponseEntity<User> createUser(@RequestBody UserPojo userPojo){
-
-        User user= new User(userPojo.getId(),userPojo.getNombre(),userPojo.getPrioridad(),userPojo.getEdad());
+    public MessagePojo createUser(@RequestBody UserPojo userPojo){
+        MessagePojo userPojo1= new MessagePojo();
+        User user= new User(userPojo.getId(),userPojo.getNombre(),userPojo.getPrioridad(),userPojo.getEdad(),userPojo.getPassword(),userPojo.getCorreo());
         userService.registerUser(user);
-        return new ResponseEntity(user, HttpStatus.OK);
+        userPojo1.setMessage("registrado");
+        return userPojo1;
     }
+
 
     @PostMapping("/sendEmail")
     public String sendEmail(@RequestBody UserPojo emailPojo){
@@ -44,5 +47,15 @@ public class userController {
         }
 
     }
+
+    @PostMapping("/login")
+    public MessagePojo login(@RequestBody UserPojo userPojo){
+        String nUser=userService.loginUser(userPojo);
+        MessagePojo userPojo1= new MessagePojo();
+        userPojo1.setMessage(nUser);
+        return userPojo1;
+    }
+
+
 
 }
