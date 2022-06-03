@@ -25,7 +25,10 @@ public class userController {
     co.edu.unbosque.proyecto.service.userService userService;
 
 
-
+    @GetMapping("/listUser")
+    public List<UserPojo> listUser(){
+        return userService.list();
+    }
 
     @PostMapping("/createUser")
     public MessagePojo createUser(@RequestBody UserPojo userPojo){

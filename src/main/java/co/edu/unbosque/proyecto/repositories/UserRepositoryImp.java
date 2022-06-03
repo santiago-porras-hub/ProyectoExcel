@@ -40,9 +40,10 @@ public class UserRepositoryImp implements UserRepository{
     }
 
     @Override
-    public List<User> findAll() {
-
-        return null;
+    public List<UserPojo> findAll() {
+        String query = " FROM User";
+        List<UserPojo> users = entityManager.createQuery(query).getResultList();
+        return users;
     }
 
     @Override

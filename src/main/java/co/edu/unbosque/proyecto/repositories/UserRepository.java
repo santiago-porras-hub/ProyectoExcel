@@ -9,7 +9,7 @@ public interface UserRepository {
 
    void registerUser(User user );
    String loginUser(UserPojo user);
-   List<User> findAll();
+   List<UserPojo> findAll();
 
    User buscarPorId(Long id);
 }
