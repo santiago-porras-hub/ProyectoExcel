@@ -10,6 +10,6 @@ public interface UserRepository {
    void registerUser(User user );
    String loginUser(UserPojo user);
    List<UserPojo> findAll();
-
    User buscarPorId(Long id);
+   User editar(UserPojo userPojo,Long id);
 }

@@ -23,6 +23,14 @@ public class userService {
         return userRepository.findAll();
     }
 
+    public  User obtainId(Long id){
+
+        return  userRepository.buscarPorId(id);
+    }
+    public User editarUser(UserPojo user){
+        return  userRepository.editar(user, user.getId());
+    }
+
     public User registerUser(User user){
 
         User newUser= new User(user.getId(), user.getNombre(),user.getPrioridad(),user.getEdad(),user.getPassword(),user.getCorreo());

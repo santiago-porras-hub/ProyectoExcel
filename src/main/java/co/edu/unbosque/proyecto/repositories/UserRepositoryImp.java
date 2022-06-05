@@ -53,4 +53,20 @@ public class UserRepositoryImp implements UserRepository{
         System.out.println("Tamanio = "+users.size());
         return users.get(0);
     }
+
+    @Override
+    public User editar(UserPojo userPojo, Long id) {
+        String query = "FROM User where id = " + id;
+        List<User> users = entityManager.createQuery(query).getResultList();
+        User user= users.get(0);
+        user.setNombre(userPojo.getNombre());
+        user.setPrioridad(userPojo.getPrioridad());
+        user.setEdad(userPojo.getEdad());
+        user.setCorreo(userPojo.getCorreo());
+        entityManager.merge(user);
+        return user;
+    }
+
+
+
 }

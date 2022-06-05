@@ -29,6 +29,25 @@ public class userController {
     public List<UserPojo> listUser(){
         return userService.list();
     }
+    @GetMapping("/id")
+    public  User getId(@RequestParam Long id){
+        System.out.println(id);
+        return userService.obtainId(id);
+    }
+
+    @PutMapping("/editUser")
+    public User  editUser(@RequestBody UserPojo userPojo){
+        User user= new User(userPojo.getId());
+        System.out.println(userPojo.getId());
+        System.out.println(userPojo.getNombre());
+        System.out.println(userPojo.getEdad());
+        System.out.println(userPojo.getPrioridad());
+        System.out.println(userPojo.getPassword());
+        System.out.println(userPojo.getCorreo());
+        userService.editarUser(userPojo);
+
+        return user;
+    }
 
     @PostMapping("/createUser")
     public MessagePojo createUser(@RequestBody UserPojo userPojo){
